@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DailyBlog.Models
 {
@@ -37,10 +38,24 @@ namespace DailyBlog.Models
 
         [DataType(DataType.Date)] //only for showing Date not Time
 
-        public  DateTime PublishedDate { get; set; } = DateTime.
-            Now;
+        public  DateTime PublishedDate { get; set; } = DateTime. Now;
 
 
+        //As there is a 1 to many relationship between Category and post model
+        //we have to declare a foreign key property in the post model
+
+
+       [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+
+
+
+        //But how entity framework will know that this is a foreign key of postt mode??
+        //for this we have to use navigation property
+
+        public Category Category { get; set; }//navigation property
+
+        //now call the navigation property to the attributes
 
 
 
