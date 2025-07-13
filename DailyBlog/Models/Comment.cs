@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DailyBlog.Models
 {
@@ -29,6 +30,16 @@ namespace DailyBlog.Models
         //As there is a 1 to many relationship between Post and comment model
         //we have to declare a foreign key property in the comment model
 
+        [ForeignKey("Post")]
         public int PostId { get; set; }
+
+
+        //But how entity framework will know that this is a foreign key of comment model??
+        //for this we have to use navigation propert
+
+        public Post Post { get; set; }//navigation property
+        //now call the navigation property to the attributes
     }
+
+
 }
