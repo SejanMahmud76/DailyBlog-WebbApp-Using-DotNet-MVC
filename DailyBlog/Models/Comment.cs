@@ -23,5 +23,12 @@ namespace DailyBlog.Models
 
         [Required]
         public string Content { get; set; }
+
+
+
+        //As there is a 1 to many relationship between Post and comment model
+        //we have to declare a foreign key property in the comment model
+
+        public int PostId { get; set; }
     }
 }
