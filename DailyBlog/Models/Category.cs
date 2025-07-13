@@ -18,5 +18,9 @@ namespace DailyBlog.Models
                                         // for this nullable should be enabbled in the project file
 
 
+        //now we have to add navihation property to the category model  for the one to many relationship between category and post
+        public ICollection<Post> posts { get; set; } 
+
+
     }
 }
